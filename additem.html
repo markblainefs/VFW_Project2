@@ -39,7 +39,7 @@
 					<!--Date input-->
 					<label for="dueDate">Due date:</label><input type="date" id="dueDate" /><br/><br/>
 					<!--Range input-->
-					<label for="importance">Importance:</label><input type="range" id="importance" min="1" max="10" /><br/><br/>
+					<label for="importance">Importance:</label><input type="range" id="importance" min="1" max="10" /><br/>
 				</div>
 				<!--Radio input-->
 				<div id="radios">
@@ -53,14 +53,17 @@
 				<!--Textarea input-->
 				<div id="instructions">
 					<label for="specialInstructions">How to not mess up:</label><br/>
-					<textarea id=specialInstructions></textarea><br/>
-					<input type="submit" value="Submit" /><br/>				
+					<textarea id="specialInstructions"></textarea><br/>
+					<input type="submit" value="Honey Do This" id="submit"" /><br/>				
 				</div>
 			</fieldset>
 		</form>
 		<br/>
-		<a href = "#">Clear stored data</a> 
-		<a href="#">Display data</a>
+		<nav>
+			<a href = "#" id="clear">Clear stored data</a> 
+			<a href="#" id="displayLink">Display data</a>
+		</nav>
+		<script src=js/main.js type="text/javascript"></script>
 		
 	</body>
 </html>
