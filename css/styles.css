@@ -64,6 +64,10 @@ div#instructions {
 	color: white;
 }
 
+div#items {
+	color: pink;
+}
+
 a {
 	margin-right: 15px;
 }
