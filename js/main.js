@@ -32,8 +32,29 @@ window.addEventListener("DOMContentLoaded", function(){
 		var radios = document.forms[0].priority;
 		for (var i=0; i<radios.length; i++){
 			if (radios[i].checked){
-				priorityValue = radios[1].value;
+				priorityValue = radios[i].value;
 			}
+		}
+	}
+	
+	//Make toggle controls when displaying the data
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				$('honeyForm').style.display = "none";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "none";
+				$('addNew').style.display = "inline";
+				break;
+			case "off":
+				$('honeyForm').style.display = "block";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "inline";
+				$('addNew').style.display = "none";
+				$('items').style.display = "none";
+				break;
+			default:
+				return false;
 		}
 	}
 	
@@ -58,12 +79,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function getData(){
+		toggleControls("on");
+		if (localStorage.length===0){
+			alert("There is nothing for the Honey to do");
+		}
 		//Write data from local storage to the browser
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
 		for (var i=0, len=localStorage.length; i<len; i++){
 			var makeli = document.createElement('li');
 			makeList.appendChild(makeli);
@@ -83,20 +109,31 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	//Function to clear the local storage
+	function clearLocal(){
+		if (localStorage.length===0){
+			alert("There is no data to clear.");
+		}else{
+			localStorage.clear();
+			alert("All Honey Do items are deleted!");
+			window.location.reload();
+			return false;
+		}
+	}
+	
+	
 	//Variable defaults
 	var locations = ["--Choose a Location--", "Home", "Car", "Errand"],
 		priorityValue;
 
-	//Run the function
+	//Run the makeList function to create the location dropdown
 	makeList();
 	
 	//Set Link & Submit Click Events
 	var displayLink = $('displayLink');
 	displayLink.addEventListener("click", getData);
-/*
 	var clearLink = $('clear');
 	clearLink.addEventListener("click", clearLocal);
-*/
 	var save = $('submit');
 	save.addEventListener("click", storeData);
 
