@@ -28,18 +28,14 @@
 				<legend>Honey Do:</legend>
 				<!--Text input-->
 				<div id="textFields">
-					<label for="taskName">Task name:</label><input type="text" id="taskName" /><br/><br/>
-					<!--Dropdown input-->
-					<label for="location">Location:</label>
-					<select id="location">
-						<option value="home">Home</option>
-						<option value="car">Car</option>
-						<option value="errand">Errand</option>
-					</select><br/><br/>
-					<!--Date input-->
-					<label for="dueDate">Due date:</label><input type="date" id="dueDate" /><br/><br/>
-					<!--Range input-->
-					<label for="importance">Importance:</label><input type="range" id="importance" min="1" max="10" /><br/>
+					<ul id="questions">
+						<li><label for="taskName">Task name:</label><input type="text" id="taskName" /></li>
+						<li id="select"><label for="location">Location:</label></li>
+						<!--Date input-->
+						<li><label for="dueDate">Due date:</label><input type="date" id="dueDate" /></li>
+						<!--Range input-->
+						<li><label for="importance">Importance:</label><input type="range" id="importance" min="1" max="10" /></li>
+					</ul>
 				</div>
 				<!--Radio input-->
 				<div id="radios">
@@ -47,7 +43,7 @@
 					<input type="radio" checked name="priority" id="low" /><label for="low"> Because you love me</label><br/>
 					<input type="radio" name="priority" id="medium" /><label for="medium"> I've already asked you once</label><br/>
 					<input type="radio" name="priority" id="high" /><label for="high"> You are in trouble</label><br/>
-					<input type="hidden" name="honey" value="Him" />
+					<input type="hidden" id="forHoney" name="honey" value="Him" />
 				</div>
 				<br/>
 				<!--Textarea input-->
