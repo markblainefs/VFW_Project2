@@ -137,6 +137,4 @@ window.addEventListener("DOMContentLoaded", function(){
 	var save = $('submit');
 	save.addEventListener("click", storeData);
 
-
-
 });
